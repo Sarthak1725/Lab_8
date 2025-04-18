@@ -4,3 +4,8 @@ class EmptyFieldException extends Exception {
     }
 }
 
+class DuplicatePRNException extends Exception {
+    public DuplicatePRNException(String message) {
+        super(message);
+    }
+}
