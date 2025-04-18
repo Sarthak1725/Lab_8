@@ -24,6 +24,27 @@ public class StudentOperations {
             }
         }
     }
+    
+    public void searchStudent(int prn) throws StudentNotFoundException {
+        for (Student s : students) {
+            if (s.getPrn() == prn) {
+                System.out.println(s);
+                return;
+            }
+        }
+        throw new StudentNotFoundException("Student with PRN " + prn + " not found.");
+    }
+
+    public void deleteStudent(int prn) throws StudentNotFoundException {
+        for (Student s : students) {
+            if (s.getPrn() == prn) {
+                students.remove(s);
+                System.out.println("Student with PRN " + prn + " has been deleted.");
+                return;
+            }
+        }
+        throw new StudentNotFoundException("Student with PRN " + prn + " not found.");
+    }
 
     
 }
