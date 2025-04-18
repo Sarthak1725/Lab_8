@@ -46,5 +46,21 @@ public class StudentOperations {
         throw new StudentNotFoundException("Student with PRN " + prn + " not found.");
     }
 
+    public void updateStudent(int prn, String newName, String newBatch) throws StudentNotFoundException, EmptyFieldException {
+        for (Student s : students) {
+            if (s.getPrn() == prn) {
+                if (newName.isEmpty() || newBatch.isEmpty()) {
+                    throw new EmptyFieldException("Name or batch cannot be empty.");
+                }
+                s.setName(newName);
+                s.setBatch(newBatch);
+                System.out.println("Student with PRN " + prn + " has been updated.");
+                return;
+            }
+        }
+        throw new StudentNotFoundException("Student with PRN " + prn + " not found.");
+    }
+
+
     
 }
